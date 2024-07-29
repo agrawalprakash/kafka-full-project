@@ -9,6 +9,10 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 @Component
 @Slf4j
 public class LibraryEventsProducer {
@@ -49,6 +53,21 @@ public class LibraryEventsProducer {
         );
 
     }
+
+    public SendResult<Integer, String> sendLibraryEvent_approach2(LibraryEvent libraryEvent) throws JsonProcessingException, ExecutionException, InterruptedException, TimeoutException {
+
+        var key = libraryEvent.libraryEventId();
+
+        var value = objectMapper.writeValueAsString(libraryEvent);
+
+        SendResult<Integer, String> sendResult = kafkaTemplate.send(topic, key, value).get(3, TimeUnit.SECONDS);
+
+        handleSuccess(key, value, sendResult);
+
+        return sendResult;
+
+    }
+
 
     private void handleSuccess(Integer key, String value, SendResult<Integer, String> sendResult) {
 
