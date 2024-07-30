@@ -29,7 +29,7 @@ public class LibraryEventsController {
 
         log.info("Response entity is " + libraryEvent);
 
-        libraryEventsProducer.sendLibraryEvent_approach2(libraryEvent);
+        libraryEventsProducer.sendLibraryEvent_approach3(libraryEvent);
         // invoke the Kafka producer
         return ResponseEntity.status(HttpStatus.CREATED).body(libraryEvent);
 
