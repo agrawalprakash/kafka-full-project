@@ -16,5 +16,16 @@
     <orderEntry type="library" name="Gradle: org.springframework:spring-web:6.1.10" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.kafka:kafka-clients:3.7.0" level="project" />
     <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter-api:5.10.2" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Gradle: org.hibernate.validator:hibernate-validator:8.0.1.Final" level="project" />
+    <orderEntry type="library" name="Gradle: jakarta.validation:jakarta.validation-api:3.0.2" level="project" />
   </component>
 </module>
