@@ -47,7 +47,7 @@ public class LibraryEventsController {
 
 
         ResponseEntity<String> BAD_REQUEST = validateUpdateRequest(libraryEvent);
-        
+
         if (BAD_REQUEST != null) return BAD_REQUEST;
 
         libraryEventsProducer.sendLibraryEvent_approach3(libraryEvent);
